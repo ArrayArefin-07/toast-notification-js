@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>toast-notification-js</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  
-  <div class="buttons">
-    <button onclick="showToast()">Success</button>
-    <button onclick="showToast()">Error</button>
-    <button onclick="showToast()">Invalid</button>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>toast-notification-js</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script
+      src="https://kit.fontawesome.com/c4254e24a8.js"
+      crossorigin="anonymous"
+    ></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="buttons">
+      <button onclick="showToast(successMsg)">Success</button>
+      <button onclick="showToast(errorMsg)">Error</button>
+      <button onclick="showToast(invalidMsg)">Invalid</button>
+    </div>
 
-  <div id="toastBox"></div>
+    <div id="toastBox"></div>
 
-  <script>
-    let toastBox = document.getElementById('toastBox');
+    <script>
+      let toastBox = document.getElementById("toastBox");
+      let successMsg =
+        '<i class="fa-solid fa-circle-check"></i> Successfully submitted';
+      let errorMsg =
+        '<i class="fa-solid fa-circle-xmark"></i> Please fix the Error..!';
+      let invalidMsg =
+        '<i class="fa-solid fa-circle-exclamation"></i> Invalid Input, Check again';
 
-    function showToast(){
-      let toast = document.createElement('div');
-      toast.classList.add('toast');
-      toast.innerHTML = 'success';
-      toastBox.appendChild(toast);
-    }
-  </script>
-</body>
+      function showToast(msg) {
+        let toast = document.createElement("div");
+        toast.classList.add("toast");
+        toast.innerHTML = msg;
+        toastBox.appendChild(toast);
+      }
+    </script>
+  </body>
 </html>
